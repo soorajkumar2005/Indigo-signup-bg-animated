@@ -1,0 +1,58 @@
+body {
+    background-color: indigo;
+    animation-name: color-change;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes color-change {
+    0% {
+      background-color: white;
+    }
+    25%{
+      background-color: rgba(76, 0, 130, 0.25);
+    }
+    50% {
+      background-color: rgba(76, 0, 130, 0.5);
+    }
+    75%{
+      background-color: rgba(76, 0, 130, 0.75);
+    }
+    100% {
+      background-color: rgba(76, 0, 130);
+    }
+  }
+.form {
+    background-color: whitesmoke;
+    padding: 100px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  h2 {
+    color: indigo;
+  
+  }
+  input {
+    padding: 5px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    display: block;
+    margin-top: 5px;
+  }
+
+  button {
+    padding: 5px 10px;
+    background-color: indigo;
+    color: white;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  a {
+    text-decoration: none;
+    color: indigo;
+  }

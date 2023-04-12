@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      body {
+        background-color: indigo;
+        animation-name: color-change;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes color-change {
+        0% {
+          background-color: white;
+        }
+        25%{
+          background-color: rgba(76, 0, 130, 0.25);
+        }
+        50% {
+          background-color: rgba(76, 0, 130, 0.5);
+        }
+        75%{
+          background-color: rgba(76, 0, 130, 0.75);
+        }
+        100% {
+          background-color: rgba(76, 0, 130);
+        }
+      }
+
+      .form {
+        background-color: whitesmoke;
+        padding: 100px;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h2 {
+        color: indigo;
+      }
+      input {
+        padding: 5px 10px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        display: block;
+        margin: 10px;
+      }
+
+      button {
+        padding: 5px 10px;
+        background-color: indigo;
+        color: white;
+        border: transparent;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      a {
+        text-decoration: none;
+        color: indigo;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <div class="form">
+        <h2>Login Form</h2>
+        <input type="email" id="email" placeholder="Enter your email" />
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+        />
+        <button onclick="login()">Login</button>
+        <a href="../index.html"> Sign Up </a>
+      </div>
+    </center>
+  </body>
+  <script>
+    var useremail = document.getElementById("email");
+    var userpassword = document.getElementById("password");
+    function login() {
+      var users = localStorage.getItem("users");
+      users = JSON.parse(users);
+
+      var condition = false;
+      for (var i = 0; i < users.length; i++) {
+        if (
+          users[i].email === useremail.value &&
+          users[i].password === userpassword.value
+        ) {
+          condition = true;
+          alert("Login Successfully");
+          localStorage.setItem("current_user", JSON.stringify(users[i]));
+          window.location.href = "dashboard.html";
+        }
+      }
+      if (condition === false) {
+        alert("Email/Password invalid");
+      }
+    }
+  </script>
+</html>
